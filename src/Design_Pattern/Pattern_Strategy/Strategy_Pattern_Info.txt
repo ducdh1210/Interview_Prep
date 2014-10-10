@@ -1,0 +1,17 @@
+When to use Strategy Pattern?
+
+- When you want to encapsulate a behavior (method) that all subclass will differently implement into an class.
+Instead of representing that behavior as a method in the superclass (or interface), we create a whole new interface
+and define the method in that interface. Then the specific implementation of that method will be represented as a class
+that extends that interface, and that class will specify the method. Now, any object can have the an instance object of type
+interface but points to the behavior-specifying object (which implements that interface as mentioned above)
+- For example: I want a class object to be able to choose from
+    Not flying
+    Fly with Wings
+    Fly with super speed
+- When you need to use one of several behavior dynamically
+- Often reduces long list of conditionals (so, if your codes has many conditionals, think about Strategy pattern)
+- Avoid duplicate codes
+- Keep class changes from forcing other class changes
+- Can hide complicated / secret code from the user
+- Negative: increased number of objects / classes
