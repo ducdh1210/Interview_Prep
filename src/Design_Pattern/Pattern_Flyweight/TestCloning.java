@@ -14,7 +14,8 @@ public class TestCloning {
 
         // Creates a clone of Sally and stores it in its own
         // memory location
-        Sheep clonedSheep = (Sheep) animalMaker.getClone(sally); // clonedSheep can also be of type Animal. But either way, downcast to (Sheep) is required
+        Animal clonedSheep = (Sheep) animalMaker.getClone(sally); // clonedSheep can also be of type Animal. But either way, downcast to (Sheep) is required
+        //Sheep clonedSheep = (Sheep) animalMaker.getClone(sally); // clonedSheep can also be of type Animal. But either way, downcast to (Sheep) is required
 
         // These are exact copies of each other
 

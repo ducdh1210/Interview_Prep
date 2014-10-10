@@ -12,7 +12,7 @@ public class Sheep implements Animal {
     @Override
     public Animal makeCopy() {
         System.out.println("Sheep is being made");
-        Sheep sheepObject = null;
+        Animal sheepObject = null; //  "Sheep sheepObject = null" is also safer but less flexible
         try {
             // Calls the Animal super classes clone()
             // Then casts the results to Sheep
