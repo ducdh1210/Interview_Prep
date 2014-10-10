@@ -1,0 +1,6 @@
+What is flyweight pattern and when to use it?
+
+- Creating new objects (instances) by cloning (copying) other objects
+- Allow for adding any subclass instance of known super class at run time
+- When there are numerous potential classes that you want to only use if needed at runtime
+- Reduce the need for creating subclasses
