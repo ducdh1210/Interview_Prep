@@ -1,0 +1,41 @@
+Control+N --> new file
+
+Command+N --> search classes by name. Extension: Shift+Command+N --> search files by names
+
+Command+D --> duplicate the current line
+
+Command+B --> go to declaration of class, method, or variable
+
+Command+F4 --> close current tab
+
+Option+Click --> close other tabs
+
+Shift+Control+L --> (un)comment block
+
+Control+left --> move to left tab
+
+Control+right --> move to right tab
+
+Command+F12 --> show all methods in the class (find members in current file)
+
+Command+O --> select methods to override
+
+Command+1 --> show project navigation and work on it
+
+Command+4 --> show and hide console for current run output (normally used to close the output console)
+
+F10 --> make and run current build
+
+Shift+F10 --> show current builds to run
+
+Control+Shift+A --> show all commands in intellij
+
+Option+Command+Left --> go back to where I was
+
+Control+Tab --> open Switcher
+
+
+
+
+
+
