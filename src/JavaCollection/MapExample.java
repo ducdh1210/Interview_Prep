@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
 
-public class HashMapExample {
+public class MapExample {
     public static void main(String[] args){
 
         //testHashMap();
