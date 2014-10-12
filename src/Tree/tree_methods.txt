@@ -1,0 +1,57 @@
+Ordered dictionary: dictionary in which keys have a total order, like in a heap
+
+Insert, find, remove entries
+Quickly find entry with minimum and maximum key, or entry nearest another entry
+
+In-order traversal of a binary tree visits nodes in sorted order
+
+1) Entry find(Object k);
+   How to find smallest keys >= k?
+              or largest key <= k?
+   When searching down tree for a key that is NOT in tree, we encountered both
+   - node containing smallest key > k, and
+   - node containing largest key < k
+
+2) Entry first();
+   Entry last();
+
+   first():
+        If tree is empty, return null;
+        Otherwise, start with the root
+        Repeatedly go the left child until you reach the node that does not have the left child, it has minimum key
+        Then return that node
+
+3) Entry insertObject(Object k, Object v);
+
+   Follow same path through tree as find()
+   When you reach null reference, replace that null with reference to a new node with Entry(k,v)
+
+   Since duplicate keys are allowed. Put new entry in the left subtree of old one.
+
+4) Entry remove(Object k);
+   Find a node n with key k
+   If k not found, return null
+   Otherwise,
+        If n has no children, detach it from parent
+        If n has one child, move this child up to take n's place
+        If n has two children // difficult case
+            Let x be node in n's right subtree with the smallest key (means go to the right of x, and from then keep
+            going to the left until you could not go to the left anymore). Assign it as x
+            Remove x, since x has no left child child. os it is easy to remove it
+            Replace n's key with x's key
+
+Running time
+
+Perfectly balanced binary tree with depth d, then # of nodes = 2^(d+1) -1
+No node has depth > log(n)
+Then, the running time of insert(..), find(..), remove(..) is O(depth of deepest node)
+
+Bad news: All operations on binary search tree has O(n) worst case running time
+
+
+
+
+
+
+
+
