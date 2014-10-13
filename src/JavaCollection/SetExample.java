@@ -23,6 +23,8 @@ public class SetExample {
 
         /* iteration */
         printIteration(genericHashSet); System.out.println();
+        printIteration(linkedHashSet); System.out.println();
+        printIteration(treeHashSet); System.out.println();
 
         /* does contain certain element? */
         System.out.println(linkedHashSet.contains("dog"));
@@ -51,8 +53,6 @@ public class SetExample {
         Set<String> difference = new HashSet<String>(genericHashSet);
         difference.removeAll(hashSet2);
         System.out.println(difference);
-
-
 
     }
 

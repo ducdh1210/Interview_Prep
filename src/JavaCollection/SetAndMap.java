@@ -95,7 +95,7 @@ public class SetAndMap {
         mapNew.put(p2,2);
         mapNew.put(p3,3);
         mapNew.put(p4,1);
-
+        System.out.println("Test Map:");
         for (Person key : mapNew.keySet()){
             System.out.println( key + " : " + mapNew.get(key) );
         }
@@ -105,7 +105,7 @@ public class SetAndMap {
         set.add(p2);
         set.add(p3);
         set.add(p4);
-
+        System.out.println("Test Set:");
         System.out.println(set);
 
     }

@@ -21,14 +21,14 @@ public class MapExample {
         HashMap<Integer, String> map = new HashMap<Integer, String> ();
         map.put(5,"Five");
         map.put(8,"Eight");
-        map.put(8, "Duplicated Eight"); /* you can have duplicate value, but if you have duplicate keys, only the last one is effective*/
+        map.put(8,"Duplicated Eight"); /* you can have duplicate values, but if you have duplicate keys, only the last one is effective*/
         map.put(6,"Six");
         map.put(4,"Four");
         map.put(2,"Two");
 
         String text = map.get(8); System.out.printf("Value for key 8 is: %s\n\n", text);
 
-        /* strange mechanism to iterate through pair in map*/
+        /* strange mechanism to iterate through pair in map */
 
         for (Map.Entry<Integer, String> entry : map.entrySet()){
             int key = entry.getKey();

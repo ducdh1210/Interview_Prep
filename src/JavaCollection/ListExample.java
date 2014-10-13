@@ -20,8 +20,6 @@ public class ListExample {
 
         doTimings("ArrayList", arrayList);
         doTimings("LinkedList", linkedList);
-
-
     }
 
     private static void doTimings(String type, List<Integer> list){
