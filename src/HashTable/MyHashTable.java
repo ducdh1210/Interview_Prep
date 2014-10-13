@@ -2,7 +2,8 @@ package HashTable;
 import java.util.*;
 
 public class MyHashTable {
-	
+	/** Two class objects are: (1) array whose each element is a reference to a node
+     *  and (2) predetermined size of the array **/
 	public Node[] array;
 	public int size;
 	
@@ -12,7 +13,12 @@ public class MyHashTable {
 	}
 	
 	/**
-	 * find unique hashCode of a key¡
+	 * find unique hashCode of a key ¡
+     * INPUT: a key
+     * OUTPUT: a key is "supposed to" associated with an unique hash code. However, it is not a always the case.
+     * Two or more keys can have same hash code. If that happens, it is called "collision". In such that case,
+     * an array element will point to the linked list composed of those keys sharing same hash code.
+     * In term of implementation, that linked list will be accessed using the specific bucket value (I call it bucket index)
 	 * */
 	public int getHashCode(String key){
 		return key.charAt(0) - 97;
@@ -45,6 +51,7 @@ public class MyHashTable {
 	public void add(Node node){
 		int bucketIndex = this.getBucketIndex(node);
 		//System.out.println(", bucketIndex " +  bucketIndex);
+
 		/* get the first node in the chain on that bucket*/
 		Node temp_Node = array[bucketIndex];
 		if (temp_Node == null){ /* if that bucket is empty*/
@@ -69,7 +76,12 @@ public class MyHashTable {
 		}else{ /* if the bucket is not empty*/
 			System.out.printf("With givenKey = %s, then hashCode = %d, then bucketIndex = %d\n", givenKey, hashCodeForGivenKey,bucketIndex);
 			while(temp_Node != null){ /*traverse to get the last node in the chain*/
-				System.out.printf("(%s, %s)-->", givenKey, temp_Node.value);
+				if (temp_Node.getNext() != null) { /* if it is not the last node in the chain*/
+                    System.out.printf("(%s, %s) --> ", givenKey, temp_Node.value);
+                }else{ /* if it is the last node in the chain*/
+                    System.out.printf("(%s, %s)", givenKey, temp_Node.value);
+
+                }
 				temp_Node = temp_Node.getNext();
 			}
 			System.out.println();

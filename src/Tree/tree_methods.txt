@@ -48,6 +48,9 @@ Then, the running time of insert(..), find(..), remove(..) is O(depth of deepest
 
 Bad news: All operations on binary search tree has O(n) worst case running time
 
+2-3-4 Trees
+Perfectly balanced tree
+- find, insert, remove: worst-case O(log(n)) time.
 
 
 
