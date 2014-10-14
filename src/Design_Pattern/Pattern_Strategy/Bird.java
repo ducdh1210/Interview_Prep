@@ -11,12 +11,14 @@ public class Bird extends Animal{
 
         super();
 
-        setSound("Tweet");
+        this.setSound("Tweet");
 
         // We set the Flys interface polymorphically
         // This sets the behavior as a non-flying Animal
 
-        flyingType = new ItFlys();
+        //flyingType = new ItFlys();
+
+        this.setFlyingAbility( new ItFlys() );
 
     }
 
