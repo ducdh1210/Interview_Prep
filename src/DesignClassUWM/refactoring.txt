@@ -1,0 +1,4 @@
+Refactoring
+- Changing without changing more functionality
+- Make name more descriptive
+- Increase modularity
