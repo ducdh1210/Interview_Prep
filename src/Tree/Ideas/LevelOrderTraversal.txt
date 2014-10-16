@@ -1,0 +1,30 @@
+Queue<Node> Q= new Queue<Node>();
+int count = 0;
+
+void assignJ(Node node){
+    if (!node) return;
+    Q.push(node);
+    int count = 0;
+    while (!Q.empty()){
+        Node currentNode = Q.front();
+        count++;
+        if(!currentNode.getLeftChild()){
+            Q.push(currentNode.getLeftChild();
+            currentNode.getLeftChild().setI(count)
+        }else if(!currentNode.getRightChild()){
+            Q.push(currentNode.getRightChild());
+            currentNode.getRightChild().setI(count)
+        }
+        Q.pop()
+    }
+
+}
+
+Integer jValue = 0;
+
+void assignJ(Node node){
+    if (!node) return;
+    assignJ(node.getLeftChild())
+    node.setJ(jValue++)
+    assignJ(node.getRightChild())
+}

@@ -1,0 +1,61 @@
+Since the add() operation has to specify the rule of inserting a duplicate key into the binary search  tree, so that it is safe to make the rule that the place to put an duplicate node is decided by traversing from the highest equal node to its direct left child, and traverse down if needed based on BST rule
+Hence, all the duplicate node will be centered around a specific subtree whose root node is a duplicate node
+Our algorithm is somewhat simple:
+    find the first node
+    traverse to the left and traverse down if possible to get all the duplicate node
+
+Test in main(): findAllElement(tree.root)
+
+Set<Node> nodes = new Set<Node>();
+
+public static Set<Node> findAllElements(k){
+    Node firstDuplicateNode = findFirstElement(k, root)
+    findAllElements(k, firstDuplicateNode);
+}
+
+public static Node findFirstElement(int k, Node node){
+     if (node == null){
+         return null;
+     }else{
+         if (k > node.key) {
+             findAllElement(k, node.getRightChild();
+         }
+         else if (k < node.key){
+             findAllElements(k, node.getLeftChild());
+         }
+         if (k == node){
+             return node;
+         }
+     }
+
+ }
+
+public static Node findAllElements(int k, Node node){
+    if (node == null || node.getLeftChild() == null){
+        return null;
+    }
+
+    Node node = node.getLeftChild();
+
+    if (k == node.key){
+        nodes.add(node);
+        findNextElements(k, node.getRightChild());
+    }
+}
+
+public static Node findNextElements(int k, Node node){
+    if (node == null){
+        return null;
+    }
+
+    else{
+        if (k == node.key){
+            nodes.add(node);
+            finNextElements(node.getRightChild());
+        }
+    }
+}
+
+
+
+

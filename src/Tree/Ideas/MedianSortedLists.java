@@ -1,11 +1,9 @@
-package Tree.Extra;
+package Tree.Ideas;
 
 
 /**
  * Created by ducdh1210 on 10/13/14.
  */
-
-import Tree.*;
 
 import java.util.*;
 

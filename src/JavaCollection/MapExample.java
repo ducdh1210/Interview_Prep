@@ -13,15 +13,15 @@ import java.util.TreeMap;
 public class MapExample {
     public static void main(String[] args){
 
-        //testHashMap();
-        testSortedHashMap();
+        testHashMap();
+        //testSortedHashMap();
     }
 
     public static void testHashMap(){
         HashMap<Integer, String> map = new HashMap<Integer, String> ();
         map.put(5,"Five");
         map.put(8,"Eight");
-        map.put(8,"Duplicated Eight"); /* you can have duplicate values, but if you have duplicate keys, only the last one is effective*/
+        map.put(8,"New Value Eight"); /* you can have duplicate values, but if you have duplicate keys, only the last one is effective*/
         map.put(6,"Six");
         map.put(4,"Four");
         map.put(2,"Two");

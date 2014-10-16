@@ -13,7 +13,7 @@ public class MyHashTable {
 	}
 	
 	/**
-	 * find unique hashCode of a key ¡
+	 * find unique hashCode of a key ¡ using hash function
      * INPUT: a key
      * OUTPUT: a key is "supposed to" associated with an unique hash code. However, it is not a always the case.
      * Two or more keys can have same hash code. If that happens, it is called "collision". In such that case,
@@ -21,15 +21,19 @@ public class MyHashTable {
      * In term of implementation, that linked list will be accessed using the specific bucket value (I call it bucket index)
 	 * */
 	public int getHashCode(String key){
+        /* hash function implemented */
 		return key.charAt(0) - 97;
 	}
 	
 	/**
 	 * compression function: find the proper bucket (index in the arrayList) that the node with belong to
+     * Input: node
+     * Output: the bucket index
 	 * */
 	public int getBucketIndex(Node node){
 		int bucketIndex = 0;
 		/* first, get the hashCode by apply hash function to the node's key value*/
+        /* note that the getBucketIndex(node) always needs to call getHashCode(key) first */
 		int hashCodeOfNode = this.getHashCode(node.key);
 		/* second, find bucket to that the node with that hash code will be in*/
 		bucketIndex = hashCodeOfNode % size;
@@ -37,11 +41,20 @@ public class MyHashTable {
 	}
 	
 	/**
-	 * retrieve bucket index 
+	 * Input: hash node index
+     * Output: the bucket index
 	 * */
-	public int getBucketIndex(int hashNode){
-		return hashNode % size;
+	public int getBucketIndex(String key){
+		return getHashCode(key) % size;
 	}
+
+    /**
+     * Input: hash node index
+     * Output: the bucket index
+     * */
+    public int getBucketIndex(int hashNode){
+        return hashNode % size;
+    }
 	
 	/**
 	 * add node to the array
@@ -49,15 +62,16 @@ public class MyHashTable {
 	 * Step 2: Traverse through the chain associated with that bucket. Add the node to the end of that chain
 	 * */
 	public void add(Node node){
+        /* find the bucketIndex that the node gonna be put into*/
 		int bucketIndex = this.getBucketIndex(node);
 		//System.out.println(", bucketIndex " +  bucketIndex);
 
 		/* get the first node in the chain on that bucket*/
 		Node temp_Node = array[bucketIndex];
-		if (temp_Node == null){ /* if that bucket is empty*/
+		if (temp_Node == null){ /* if that bucket is empty */
 			array[bucketIndex] = node;			
-		}else{ /* if the bucket is not empty*/
-			while(temp_Node.getNext()!= null){ /*traverse to get the last node in the chain*/
+		}else{ /* if the bucket is not empty */
+			while(temp_Node.getNext()!= null){ /* traverse to get the last node in the chain */
 				temp_Node = temp_Node.getNext();
 			}
 			temp_Node.setNext(node);
@@ -68,6 +82,8 @@ public class MyHashTable {
 	public void printAllValuesForKey(String givenKey){
 		int hashCodeForGivenKey = this.getHashCode(givenKey);
 		int bucketIndex = this.getBucketIndex(hashCodeForGivenKey);
+
+        //int bucketIndex = this.getBucketIndex(givenKey);
 		
 		Node temp_Node = array[bucketIndex];
 		

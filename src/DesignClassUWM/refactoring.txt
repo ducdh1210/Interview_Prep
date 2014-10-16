@@ -2,3 +2,18 @@ Refactoring
 - Changing without changing more functionality
 - Make name more descriptive
 - Increase modularity
+
+Test case
+- JUnit
+- Use case by hand
+
+Need to differentiate code surgery vs refactoring (stretch / pull / continuous changes / small changes)
+
+Refactoring names
+- Extract method / Inline method
+- Rename
+- Move to a new package
+- Extract constant
+
+
+

@@ -8,9 +8,9 @@ public class Insertion {
 		for (int j = 1; j < array.length; j++ ){
 			int key = array[j];
 			
-			int i = j -1;
+			int i = j - 1;
 			
-			while (i>=0 && array[i]>key){
+			while (i >= 0 && array[i] > key){
 				array[i+1] = array[i];
 				i = i - 1;
 			}
@@ -19,7 +19,7 @@ public class Insertion {
 		}
 		
 		for (int index = 0; index < array.length; index++){
-			System.out.println(array[index]);
+			System.out.print(array[index]);
 		}
 	}
 

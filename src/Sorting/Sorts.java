@@ -6,28 +6,12 @@ import java.text.DecimalFormat;
 public class Sorts
 {	
 	static final int SIZE = 50000; // size of array to be sorted
-	
-	
+
 	static int[] values = new int[SIZE];
 
-    public static void printA(int[]B){
-        for (int i = 0; i < B.length; i++){
-            System.out.print(B[i] + " ");
-        }
-    }
-
-    public static int[] populateA (int[] B){
-        for (int i = 0; i < B.length; i++){
-            B[i] = (int) (Math.random()*100);
-        }
-        return B;
-
-    }
-	
-	
 	public static void main(String[] args)
 	{
-        /*System.out.println();
+        System.out.println();
 		//initialize an unsorted array
 		initValues(); 
 		//printValues();
@@ -56,25 +40,9 @@ public class Sorts
 		endTime2 = System.currentTimeMillis();
 		System.out.println("Performance by the binary insertion sort: " + (endTime2 - startTime2) + "ms");
 	//	printValues();
-		System.out.println("values is sorted: " + isSorted());		*/
+		System.out.println("values is sorted: " + isSorted());
 
-        int A[] = new int [10];
-        populateA(A);
 
-        System.out.println("Before sorting: ");
-        printA(A);
-
-        int[] ar1 = {1,2,4,7,8};
-        int[] ar2 = {-3,-1,10,12,13};
-
-      //  int[] C = merge(ar1, ar2);
-      //  printA(C);
-
-        int C[];
-        C = merge_sort(A);
-        System.out.println("\nAfter sorting: ");
-
-        printA(C);
     }
 	
 	static void initValues()
@@ -253,179 +221,12 @@ public class Sorts
 	}	
 	/** End Merge Sort **/
 
-    /** Start another implementation of merge-sort **/
-
-    public static int [] merge_sort(int[] B){
-        // base case
-        if (B.length <= 1){
-            return B;
-        }
-
-        int midpoint = B.length/2;
-
-        int[] left = new int[midpoint];
-        int[] right;
-        if (B.length % 2 == 0){
-            right = new int[midpoint];
-        }else{
-            right = new int[midpoint+1];
-        }
-
-        int[] result = new int[B.length];
-
-        for (int i = 0; i < midpoint; i++){
-            left[i] = B[i];
-        }
-        int x = 0;
-        for (int i = midpoint; i < B.length; i++){
-            if (x < right.length) {
-                right[x] = B[i];
-                x++;
-            }
-        }
-
-        left = merge_sort(left);
-        right = merge_sort(right);
-
-        result = merge(left, right);
-        return result;
-    }
-
-    public static int[] merge(int[]left, int[]right){
-        int lengthResult = left.length + right.length;
-        int [] result = new int[lengthResult];
-        int indexL = 0;
-        int indexR = 0;
-        int indexRes = 0;
-
-        while (indexL < left.length || indexR < right.length){
-            if(indexL < left.length && indexR < right.length){
-                if (left[indexL] <= right[indexR]){
-                    result[indexRes] = left[indexL];
-                    indexL++;
-                    indexRes++;
-                }else{
-                    result[indexRes] = right[indexR];
-                    indexR++;
-                    indexRes++;
-                }
-            }else if(indexL < left.length){
-                result[indexRes] = left[indexL];
-                indexL++;
-                indexRes++;
-            }else if (indexR < right.length){
-                result[indexRes] = right[indexR];
-                indexR++;
-                indexRes++;
-            }
-        }
-
-        return result;
-    }
-
-
-
-    /** End another implementation of merge-sort **/
-
-    /** Merge Sort 2**/
-
-    public static int[] mergeSortNew(int[] a){
-        if (a.length == 1){
-            return a;
-        }else{ // if (a.length > 1)
-
-            /** Divide a into two arrays **/
-            // get the ceil and floor from the a.length. Purpose is to resolve problem with odd number of elements
-            int ceil = (int)Math.ceil(a.length/2);
-            int floor = (int)Math.floor(a.length/2);
-            // initialize array a1 and a2; assign the size of each array
-            int []a_1 = new int[ceil];
-            int []a_2 = new int[floor];
-
-            // put elements from a to a_1 and a_2
-            for (int i1 = 0; i1 < ceil; i1++){
-                a_1[i1] = a[i1];
-            }
-
-            for (int i2 = 0; i2 < floor; i2++){
-                a_2[i2] = a[i2];
-            }
-
-            int[] a_1_new = mergeSortNew(a_1);
-            int[] a_2_new = mergeSortNew(a_2);
-
-            /** Conquer part starts here, eventually, we will gradually have sorted array returned from each stack call return**/
-
-            // first, create a new array whose size equal to size of two small arrays
-            int[] sorted_a = new int[a_1_new.length + a_2_new.length];
-
-            int index1 = 0;
-            int index2 = 0;
-            int newIndex = 0;
-
-            // if no elemental array is empty yet
-            while (index1 < a_1_new.length && index2 < a_2_new.length){
-            //for (newIndex=0; newIndex < sorted_a.length; newIndex++){
-                if (a_1_new[index1] <= a_2_new[index2]){
-                    sorted_a[newIndex] = a_1_new[index1];
-                    index2++;
-                    newIndex++;
-                }else{
-                    sorted_a[newIndex] = a_2_new[index2];
-                    index1++;
-                    index2++;
-                }
-            }
-
-            // at this moment, either one of two lists is empty
-            // if a_1 is not empty, the rest of sorted array is the rest of a_1
-            if (index1 < a_1_new.length){
-                for (int i = newIndex; i < sorted_a.length; i++){
-                    sorted_a[i] = a_1_new[i];
-                }
-            }
-            // if a_2 is not empty, the rest of sorted array is the rest of a_2
-            if (index2 < a_2_new.length){
-                for (int i = newIndex; i < sorted_a.length; i++){
-                    sorted_a[i] = a_2_new[i];
-                }
-            }
-
-            //now, in this level, the array is sorted, return it to the previous stack
-            return sorted_a;
-        }
-    }
-
-    public static void testMergeSortNew(){
-        int[] a = {2,6,3,5,1};
-        int[] sorted_a = mergeSortNew(a);
-        System.out.println("First element: " + sorted_a[0] +" Last Element: " + sorted_a[4]);
-
-    }
-	
 	/** Insertion Sort **/
 	static void insertionSort()
 	{
 		for (int count = 1; count < SIZE; count++)
 		{
 			insertElement(0, count); // make the insertion
-			/*
-			if (values[count] > values[count-1])
-				swap(count, count -1);
-			else if (values[count] < values[0])
-			{
-				int temp = values[count];
-				for (int i = 0; i <= count; i++)
-				{
-					values[i+1] = values[i];
-				}
-				values[0] = temp;
-			}
-			else 
-			{	
-				insertElement2(0, count);
-				// now foundIndex is in its right place; do the for loop with swapping procedure
-			} */
 		}
 	}
 	
