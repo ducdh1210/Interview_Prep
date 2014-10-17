@@ -1,0 +1,26 @@
+1) When duplication matters, think about using hashset. Hashset can be created easily from arraylist.
+For example: Set<Integer> newSet = HashSet<Integer>(arrayListObject)
+
+2) A quick iterative check and add an object to a set: boolean notExisted = set.add(value)
+
+3) An interesting way to traverse linked_list in which the node is assigned next value in later iteration.
+This code is from removing duplicate nodes
+
+    public static void deleteDupsA(LinkedListNode n){
+        LinkedListNode currentNode = n;
+        LinkedListNode previousNode = null;
+
+        HashSet<Integer> hashSet = new HashSet<Integer>();
+
+        /* if the node is repeated, meaning its data is contained in the set, then remove it by unlink it, previous
+        * node stays at un-duplicated node */
+        while(currentNode != null){
+            if (hashSet.contains(currentNode.data)){
+                previousNode.next = currentNode.next;
+            }else{
+                hashSet.add(currentNode.data);
+                previousNode = currentNode;
+            }
+            currentNode = currentNode.next;
+        }
+    }
