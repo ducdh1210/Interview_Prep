@@ -1,4 +1,4 @@
-package CompanyQuestions;
+package CompanyQuestions.Epic;
 
 /**
  * Created by ducdh1210 on 10/18/14.

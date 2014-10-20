@@ -18,7 +18,20 @@ public class Trees {
 		tree.iterativeAdd(4);	
 		tree.iterativeAdd(10);	
 		tree.print();
-		
+
+        Set<Integer> set = new TreeSet<Integer>();
+        set.add(1);
+        set.add(2);
+        set.add(3);
+
+        Iterator<Integer> iterator = set.iterator();
+        System.out.println(iterator.next());
+        while(iterator.hasNext()){
+            Integer intObj = iterator.next();
+            if (intObj == 2){
+                System.out.println("found");
+            }
+        }
 		//System.out.println("Number: \n" + tree.getCountGreatThan(2));
 		
 //		tree.iterativeRemove(7);
