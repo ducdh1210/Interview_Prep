@@ -31,6 +31,7 @@ public class PrintContinousLetters {
     }
     public static void main(String[] args) {
         String in = "AbcDefljdflsjflmnopflsjflasjftuvWxYz";
-        printContiAlpha(in);
+        //printContiAlpha(in);
+
     }
 }

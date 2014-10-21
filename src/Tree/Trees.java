@@ -23,6 +23,10 @@ public class Trees {
         set.add(1);
         set.add(2);
         set.add(3);
+        set.add(-1);
+        set.add(-4);
+        set.add(7);
+        System.out.println(set.iterator().next());
 
         Iterator<Integer> iterator = set.iterator();
         System.out.println(iterator.next());
