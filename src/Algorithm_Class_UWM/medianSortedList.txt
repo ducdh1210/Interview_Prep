@@ -1,0 +1,59 @@
+Basic idea using recursion: Start with two arrays, call them a1 and a2. Get the actual median of each array, call it m1 and m2. Suppose m1 is the bigger one, in a1 put all the values to the left of m1 into a new array (a1’); in a2, put all the values to the right of m2 into a new array (a2’). Using recursion for a1’ and a2’ until each a1’ and a2’ contain only 1 value, then return the smaller value between two.
+
+Algorithm:
+
+int lowerMedian ← null;
+
+// recursive method
+void findLowerMedian(int[] ar1, Array int[] ar2){
+	int length = ar1.length
+	// base case, if both arrays only 1 element, return the smaller one
+	if (length == 1){
+		lowerMedian = (ar1[0] <= ar2[0]) ? ar1[0] : ar2[0];
+    }else{
+		int m1 = getMedian(ar1);
+		int m2 = getMedian(ar2);
+		// find upper and lower index to create a new buffer arrays
+
+	    int upperBound, lowerBound;
+        if (n%2=1){
+            upperBound = floor(n/2);
+            lowerBound = ceil(n/2) ;
+        }else{
+	        upperBound = n/2 - 1;
+	        lowerBound = n/2 + 1;
+        }
+        // if median of array 1 is bigger than median of array 2, put the smaller half of array 1 and bigger half of array 2	as parameters for recursive method
+        if (m1 > m2){
+	        int[] newArray1 = getNewArray(ar1, 0, upperBound);
+	        int[] newArray2 = getNewArray(ar2, lowerBound, length-1);
+	        findLowerMedian(newArray1, newArray2);
+        }else{
+	        int[] newArray1 = getNewArray(ar1, lowerBound, length-1);
+	        int[] newArray2 = getNewArray(ar2, 0, upperBound);
+	        findLowerMedian(newArray1, newArray2);
+        }
+    }
+}
+
+// helper method to get actual median of an array. If the array has odd number of elements, median is the value in the middle. If the array has even number of elements, the median is the average of two middle elements.
+double getMedian(int[] array){
+	int n ← array.length;
+	if (n %2 = 0){
+	    median ←  array[floor(n/2)] + array[ceil(n/2)];
+    }else{
+	    median ←  array[ceil(n/2)];
+    }
+    return median;
+}
+
+// helper method to make a new array from old array given the start and end index of the old array
+int[] getNewArray(int[] oldArray, int leftIndex, int rightIndex){
+	int[] newArray = new int [rightIndex - leftIndex + 1];
+	int startingIndex = leftIndex;
+	for (int i = 0; i < newArray.length; i++){
+	    newArray[i] = oldArray[startingIndex];
+	    startingIndex++;
+    }
+}
+
