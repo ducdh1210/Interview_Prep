@@ -19,8 +19,8 @@ public class MedianSortedLists {
         Set[] a = getArrayOfSets(size);
         Set<Integer> set1 = a[0];
         Set<Integer> set2 = a[1];
-        System.out.println(set1);
-        System.out.println(set2);
+        System.out.println("Set 1: " + set1);
+        System.out.println("Set 2: " + set2);
 
         set1.addAll(set2);
         System.out.println(set1);

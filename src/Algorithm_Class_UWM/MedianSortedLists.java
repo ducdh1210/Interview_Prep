@@ -26,8 +26,10 @@ public class MedianSortedLists {
         System.out.println("Set 2: " + set2);
 
         set1.addAll(set2);
-        System.out.println(set1);
+        System.out.println("Combined set: " + set1);
         Iterator<Integer> iterator = set1.iterator();
+
+        System.out.print("Median of combined set: ");
 
         int count = 0;
         while(iterator.hasNext()){
@@ -38,6 +40,22 @@ public class MedianSortedLists {
             iterator.next();
             count++;
         }
+
+        System.out.print("\nPlease choose kth in kth smallest element: ");
+        int k = scanner.nextInt();
+        count = 0;
+        iterator = set1.iterator();
+        while(iterator.hasNext()){
+            if (count == k - 1){
+                System.out.println("kth smallest element is: " + iterator.next());
+                break;
+            }
+            iterator.next();
+            count++;
+        }
+
+
+
     }
 
     public static Set[] getArrayOfSets(int size){
