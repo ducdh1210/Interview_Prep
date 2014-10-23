@@ -54,8 +54,6 @@ public class MedianSortedLists {
             count++;
         }
 
-
-
     }
 
     public static Set[] getArrayOfSets(int size){
