@@ -1,5 +1,7 @@
 package CtCI.CtCILibrary;
 
+import java.util.Queue;
+
 /**
  * Created by ducdh1210 on 10/15/14.
  */
@@ -97,6 +99,8 @@ public class TreeNode {
         n.setRightChild(createMinimalBST(arr, mid + 1, end));
         return n;
     }
+
+
 
     public static TreeNode createMinimalBST(int array[]) {
         return createMinimalBST(array, 0, array.length - 1);

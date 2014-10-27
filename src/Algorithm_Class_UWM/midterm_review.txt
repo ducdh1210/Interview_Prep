@@ -1,0 +1,61 @@
+/**
+ * O(n) algorithm to print depth of all node in binary tree
+ */
+
+* Call: printDepth(root, 0)
+
+void printDepth(v,d){
+    if (v == null) return;
+    print(v)
+    printDepth(v.rightChild, d+1)
+    printDepth(v.leftChild, d+1)
+}
+
+/**
+ * Perform inorder traversal using iteration
+ */
+
+ void inorder(Node root){
+    Stack s = new Stack();
+    boolean done = false;
+    Node current = root;
+    while (!done){
+        // reach the left most node
+        if (current != null){
+            s.push(current);
+            current = current.left;
+        }
+        // backtrack from the empty subtree and visit the tNode  at the top of the stack; however, if the stack is empty, you are done */
+        else{
+            if (!s.isEmpty()){
+                current = s.pop();
+                print(current)
+                // we have visit the node and its left subtree, now visit its right subtree
+                current = current.right;
+            }
+            else{
+                done = true;
+            }
+        }
+
+    }
+
+ }
+
+ /**
+  * Level order traversal
+  */
+
+  void levelOrderTraversal(Node root){
+        Queue Q = mew Queue();
+        Q.enqueue(root)
+        while (!Q.isEmpty()){
+            v = Q.dequeue();
+            print(v);
+            Q.enqueue(v.left);
+            Q.enqueue(v.right);
+        }
+  }
+
+
+

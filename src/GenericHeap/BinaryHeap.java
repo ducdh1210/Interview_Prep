@@ -8,7 +8,7 @@ package GenericHeap;
 import java.util.Arrays;
 
 public class BinaryHeap<T extends Comparable<T>> {
-    /* Programing node: the appearance of T here means that somewhere in the class BinaryHeap, there will be some data
+    /** Programing node: the appearance of T here means that somewhere in the class BinaryHeap, there will be some data
     ** structure that refers to object of type T. That data structure can be a linked node whose each node has a
     ** reference to object of type T, or an array whose each element is a object of type T, or even that data structure
     ** can be a object of type T directly */
@@ -22,7 +22,7 @@ public class BinaryHeap<T extends Comparable<T>> {
     @SuppressWarnings("unchecked")
 	public BinaryHeap () {
         // Java doesn't allow construction of arrays of placeholder data types 
-        array = (T[])new Comparable[DEFAULT_CAPACITY];  /* interesting point about polymorphism here: first, we create
+        array = (T[])new Comparable[DEFAULT_CAPACITY];  /** interesting point about polymorphism here: first, we create
          new array of type Comparable here. Then we downcast it into array of type T. Why are you allow to do that?
          It is because in the declaration of the class, we said that "BinaryHeap< T extends Comparable<T> >", which
          means that whatever the data structure that contains object of type T, that object of type T is the subclass of
@@ -110,8 +110,7 @@ public class BinaryHeap<T extends Comparable<T>> {
             int smallerChild = leftIndex(index);
             
             // bubble with the smaller child, if I have a smaller child
-            if (hasRightChild(index)
-                && array[leftIndex(index)].compareTo(array[rightIndex(index)]) > 0) {
+            if (hasRightChild(index) && array[leftIndex(index)].compareTo(array[rightIndex(index)]) > 0) {
                 smallerChild = rightIndex(index);
             } 
             
@@ -140,7 +139,8 @@ public class BinaryHeap<T extends Comparable<T>> {
             // parent/child are out of order; swap them
             swap(index, parentIndex(index));
             index = parentIndex(index);
-        }        
+        }
+        bubbleDown();
     }
     
     

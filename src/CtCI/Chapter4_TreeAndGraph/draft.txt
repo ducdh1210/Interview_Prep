@@ -1,0 +1,18 @@
+in main(): int createBST(0,array.length-1)
+
+void createBST(int rightIndex, int leftIndex){
+    if (rightIndex == leftIndex){
+        return;
+    }else{
+        int middleIndex = (int) (leftIndex + rightIndex)/2
+        boolean alreadyThere = tree.contain(A[middleIndex])
+        if (!alreadyThere){
+            tree.add(A[middleIndex])
+        }
+
+        createBST(rightIndex, middle-1)
+        createBST(middle+1,leftIndex
+
+
+    }
+}

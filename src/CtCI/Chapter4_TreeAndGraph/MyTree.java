@@ -1,10 +1,6 @@
-package Tree;
+package CtCI.Chapter4_TreeAndGraph;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Implements an unbalanced binary search tree.
@@ -208,10 +204,10 @@ public class MyTree<T extends Comparable<T>> {
             Node<T> node = q.poll();
             l.add(node.elem);
             if (node.leftChild != null) {
-                q.add(node.leftChild);
+                q.add(node.leftChild); // enqueue
             } 
             if (node.rightChild != null) {
-                q.add(node.rightChild);
+                q.add(node.rightChild); // enqueue
             }
         }
         return l;
@@ -302,6 +298,29 @@ public class MyTree<T extends Comparable<T>> {
 
         return (sizeLeft + sizeRight + 1); // "1" is account for the node itself.
     }
+
+    public int getLevel(Node node, int k, int level){
+        if (node == null) {
+            System.out.println("Not found");
+            return 0;
+        }
+        else {
+            if (node.elem.equals(k)){
+                return level;
+            }else if (!node.elem.equals(k)) {
+                int foundLevelInLeft = getLevel(node.leftChild, k, level + 1);
+                if (foundLevelInLeft != 0)
+                    return foundLevelInLeft;
+                int foundLevelInRight = getLevel(node.rightChild, k, level + 1);
+                return foundLevelInRight;
+            }
+        }
+        return 0; // somehow I need to add this, this line is never called
+    }
+
+    public int getLevel(int k){
+        return getLevel(root, k, 1);
+    }
     
     //Test it
     public static void main(String[] args) {
@@ -317,26 +336,30 @@ public class MyTree<T extends Comparable<T>> {
         tree.add(17);
         tree.add(18);
 
+        /* Get level of a node */
+        System.out.printf("The level of the node is: %d \n", tree.getLevel(6));
+
+
+
+
         List<Integer> l = tree.depthFirstTraversal();
         //System.out.println("Depth First Order");
        // printTree(l);
          
-        // print traversal singnature
+        /* print traversal signature */
          /*tree.preOrder(tree.root); System.out.println();
          tree.postOrder(tree.root); System.out.println();
-         tree.inOrder(tree.root);System.out.println();*/
-         
-        // depth of a tree
-         System.out.println("Max Depth: " + tree.maxDepth(tree.root));
+        tree.inOrder(tree.root);System.out.println();*/
+
+        l = tree.breadthFirstTraversal();
+        System.out.println("Breadth First Order");
+        printTree(l);
+        System.out.println();
         
-//        l = tree.breadthFirstTraversal();
-//        System.out.println("Breadth First Order");
-//        printTree(l);
-        
-//        tree.delete(10);
-//        System.out.println("Tree after deleting a node");
-//        l = tree.depthFirstTraversal();
-//        printTree(l);
+        tree.delete(10);
+        System.out.println("Tree after deleting a node");
+        l = tree.depthFirstTraversal();
+        printTree(l);
          
 //     	MyTree<Movie> tree = new MyTree<Movie>(new Movie("","","",8));
 //       //tree.add(30);
@@ -353,7 +376,7 @@ public class MyTree<T extends Comparable<T>> {
     //Method to print tree
     public static <T> void printTree(List<T> l) {
         for(T i: l) {
-            System.out.println(i);
+            System.out.print(i + " ");
         }
     }
 
