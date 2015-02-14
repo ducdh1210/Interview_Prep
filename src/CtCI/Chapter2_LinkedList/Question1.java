@@ -22,9 +22,9 @@ public class Question1 {
             first = second;
         }
         System.out.println(head.printForward());
-        LinkedListNode clone = head.clone();
-        deleteDupsB(head);
-        System.out.println(head.printForward());
+       // LinkedListNode clone = head.clone();
+       // deleteDupsB(head);
+       // System.out.println(head.printForward());
         //deleteDupsC(clone);
         //deleteDupsC(clone);
 
