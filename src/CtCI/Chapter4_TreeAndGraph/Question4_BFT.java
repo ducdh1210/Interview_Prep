@@ -21,20 +21,34 @@ public class Question4_BFT {
         }
 
         while (current.size() > 0) {
+            System.out.println("**" + current.size());
+            System.out.print("current.element().data: " + current.element().data + "\n");
+
             result.add(current); // Add previous level
+            System.out.print("result.size(): " + result.size() + "\n");
+
             LinkedList<TreeNode> parents = current; // Refer to current linked list, which is the parent list.
-            // Go to next level
+            System.out.print("parents.size(): " + parents.size() + "\n");
+            
+            // Go to next level --> crucial here: this linked-\list will be added into the array in the next loop
             current = new LinkedList<TreeNode>(); // make a new linked list
+
             for (TreeNode parent : parents) {
 				/* Visit the children */
                 if (parent.left != null) {
+                    System.out.print("  parent.left.data: " + parent.left.data + "\n");
+
                     current.add(parent.left);
                 }
                 if (parent.right != null) {
+                    System.out.print("  parent.right.data: " + parent.right.data + "\n");
+
                     current.add(parent.right);
                 }
             }
+            System.out.print("current.size(): " + current.size() + "\n");
         }
+        System.out.print("result.size(): " + result.size() + "\n");
 
         return result;
     }

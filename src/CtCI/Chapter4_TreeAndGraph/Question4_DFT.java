@@ -47,8 +47,8 @@ public class Question4_DFT {
         /* Basic idea: in each recursion, we have the knowledge of the level the node is in.
         *  We follow the pre-order traversal to add each node into the linked list it should be in.
         *  Note that each linked list is stored as an element in the overall array-list.
-        *  The index of each linked list equals to the level of each node in it
-        *  */
+        *  The index of each linked list element equals to the level of each node in it
+        * */
 
         /* Base case */
         if (node == null) return;
