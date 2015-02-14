@@ -29,17 +29,17 @@ public class ListExample {
 
         long start = System.currentTimeMillis();
 
-/*
+
         // Add item at the end of the list
         for (int i = 0; i < 1E5; i++ ){
             list.add(i);
         }
-*/
 
-        // Add item somewhere else in list
-        for (int i = 0; i < 1E5; i++ ){
-            list.add(0,i);
-        }
+
+//        // Add item somewhere else in list
+//        for (int i = 0; i < 1E5; i++ ){
+//            list.add(0,i);
+//        }
 
 
         long end = System.currentTimeMillis();

@@ -13,7 +13,7 @@ public class SetExample {
 
     public static void main(String[] args){
 
-        Set<String> genericHashSet = new HashSet<String>(); // HashSet does not retain order
+        Set<String> genericHashSet = new HashSet<String>(); // HashSet does not retain insertion order
         Set<String> linkedHashSet = new LinkedHashSet<String>(); // Remember the order you put item in
         Set<String> treeHashSet = new TreeSet<String>(); // Sort in natural order
 
